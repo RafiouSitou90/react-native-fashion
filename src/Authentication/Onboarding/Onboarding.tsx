@@ -1,9 +1,9 @@
 import React, {useRef} from "react";
-import {  Dimensions, StyleSheet, View } from "react-native";
-import { interpolateColor, useScrollHandler } from "react-native-redash";
-import Animated, { divide, multiply } from "react-native-reanimated";
+import {Dimensions, Image, StyleSheet, View} from "react-native";
+import {interpolateColor, useScrollHandler} from "react-native-redash";
+import Animated, {divide, Extrapolate, interpolate, multiply} from "react-native-reanimated";
 
-import Slide, { SLIDE_HEIGHT, BORDER_RADIUS } from "./Slide";
+import Slide, {BORDER_RADIUS, SLIDE_HEIGHT} from "./Slide";
 import Subslide from "./Subslide";
 import Dot from "./Dot";
 
@@ -15,28 +15,44 @@ const slides = [
         subtitle: 'Find Your Outfit',
         description: "Confused about your outfit? Don't worry! Find the best outfit here!",
         color: "#BFEAF5",
-        picture: require("../../../assets/images/1.png")
+        picture: {
+            src: require("../../../assets/images/1.png"),
+            width: 730,
+            height: 1095
+        }
     },
     {
         label: 'Playful',
         subtitle: 'Hear it First, Wear it First',
         description: 'Hating the clothes in your wardrobe? Explore hundreds of outfit ideas',
         color: "#BEECC4",
-        picture: require("../../../assets/images/2.png")
+        picture: {
+            src: require("../../../assets/images/2.png"),
+            width: 690,
+            height: 1070
+        }
     },
     {
         label: 'Original',
         subtitle: 'Your Style, Your Way',
         description: 'Create your individual & unique style and look amazing everyday',
         color: "#FFE4D9",
-        picture: require("../../../assets/images/3.png")
+        picture: {
+            src: require("../../../assets/images/3.png"),
+            width: 730,
+            height: 1095
+        }
     },
     {
         label: 'Funky',
         subtitle: 'Look Good, Feel Good',
         description: 'Discover the latest trends in fashion and explore your personality',
         color: "#FFDDDD",
-        picture: require("../../../assets/images/4.png")
+        picture: {
+            src: require("../../../assets/images/4.png"),
+            width: 616,
+            height: 898
+        }
     }
 ]
 
@@ -53,6 +69,24 @@ const Onboarding  = () => {
     return (
       <View style={styles.container}>
           <Animated.View style={[styles.slider, { backgroundColor }]}>
+              {slides.map(({ picture }, index) => {
+                  const opacity = interpolate(x, {
+                      inputRange: [(index - 0.5) * width, index * width, (index + 0.5) * width],
+                      outputRange: [0, 1, 0],
+                      extrapolate: Extrapolate.CLAMP
+                  })
+                  return (
+                      <Animated.View key={index} style={[styles.underlay, { opacity }]}>
+                          <Image
+                              source={picture.src}
+                              style={{
+                                  width: width - BORDER_RADIUS,
+                                  height: ((width - BORDER_RADIUS) * picture.height) / picture.width
+                              }}
+                          />
+                      </Animated.View>
+                  )
+              })}
               <Animated.ScrollView
                   ref={scroll}
                   horizontal
@@ -119,6 +153,13 @@ const styles = StyleSheet.create({
     slider: {
         height: SLIDE_HEIGHT,
         borderBottomRightRadius: BORDER_RADIUS
+    },
+    underlay: {
+        ...StyleSheet.absoluteFillObject,
+        alignItems: "center",
+        justifyContent: "flex-end",
+        borderBottomRightRadius: BORDER_RADIUS,
+        overflow: "hidden"
     },
     footer: {
         flex: 1
