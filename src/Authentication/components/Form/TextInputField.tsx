@@ -10,8 +10,8 @@ interface TextInputFieldProps extends TextInputProps {
     touched?: boolean;
 }
 
-const TextInputField = forwardRef(
-    ( { icon, error, touched, ...props }: TextInputFieldProps, ref) => {
+const TextInputField = forwardRef<TextInput, TextInputFieldProps>(
+    ({ icon, error, touched, ...props }, ref) => {
     const theme = useTheme();
     const SIZE = theme.borderRadii.m * 2.5;
 
@@ -34,7 +34,7 @@ const TextInputField = forwardRef(
                 <TextInput
                     underlineColorAndroid="transparent"
                     placeholderTextColor={color}
-                    {...{ref}}
+                    {...{ ref }}
                     {...props}
                 />
             </Box>

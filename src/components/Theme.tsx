@@ -12,12 +12,14 @@ export const theme = {
         white: "white"
     },
     spacing: {
+        o: 0,
         s: 8,
         m: 16,
         l: 24,
         xl: 40,
     },
     borderRadii: {
+        o: 0,
         s: 4,
         m: 10,
         l: 25,

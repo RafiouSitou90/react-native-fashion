@@ -7,6 +7,7 @@ import {Container, Button, Text, Box} from "../../components"
 import TextInputField from '../components/Form/TextInputField';
 import CheckBoxField from "../components/Form/CheckBoxField";
 import Footer from "../components/Footer";
+import {TextInput} from "react-native";
 
 
 const loginSchema = yup.object().shape({
@@ -38,7 +39,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
         onSubmit: values => console.log(values)
     });
 
-    const password = useRef<typeof TextInputField>(null)
+    const password = useRef<TextInput>(null)
 
     return (
         <Container {... { footer }}>
