@@ -12,7 +12,7 @@ interface TextInputFieldProps extends TextInputProps {
 
 const TextInputField = ({ icon, error, touched, ...props }: TextInputFieldProps) => {
     const theme = useTheme();
-    const SIZE = theme.borderRadii.m * 2;
+    const SIZE = theme.borderRadii.m * 2.5;
 
     const reColor = !touched ? "text" : (error ? "danger" : "primary")
     const color = theme.colors[reColor];
@@ -46,8 +46,14 @@ const TextInputField = ({ icon, error, touched, ...props }: TextInputFieldProps)
                         alignItems="center"
                         backgroundColor={!error ? "primary" : "danger"}
                         marginHorizontal="s"
+                        style={{ borderRadius: SIZE / 2 }}
                     >
-                        <Icon name={!error ? "check" : "x"} color="white" size={16} />
+                        <Icon
+                            name={!error ? "check" : "x"}
+                            color="white"
+                            size={16}
+                            style={{ textAlign: "center" }}
+                        />
                     </Box>
                 )
             }

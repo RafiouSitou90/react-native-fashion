@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik } from "formik"
+import {useFormik} from "formik"
 import * as yup from "yup";
 
 import {Routes, StackNavigationProps} from "../../components/Navigation";
@@ -33,6 +33,20 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
         </>
     );
 
+    const {
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+        touched,
+        setFieldValue
+    } = useFormik({
+        validationSchema:loginSchema,
+        initialValues:{email: "", password: "", remember: false},
+        onSubmit: values => console.log(values)
+    });
+
     return (
         <Container {... { footer }}>
             <Box padding="xl">
@@ -41,62 +55,43 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
                     Use your credentials below and login to your account
                 </Text>
 
-                <Formik
-                    validationSchema={loginSchema}
-                    initialValues={{ email: "", password: "", remember: false }}
-                    onSubmit={values => console.log(values)}
-                >
-                    {
-                        ({
-                             handleChange,
-                             handleBlur,
-                             handleSubmit,
-                             values,
-                             errors,
-                             touched,
-                             setFieldValue
-                        }) => (
-                            <Box>
-                                <Box marginBottom="m">
-                                    <TextInputField
-                                        icon="mail"
-                                        placeholder="Enter your Email"
-                                        onChangeText={handleChange('email')}
-                                        onBlur={handleBlur('email')}
-                                        value={values.email}
-                                        error={errors.email}
-                                        touched={touched.email}
-                                    />
-                                </Box>
-                                <TextInputField
-                                    icon="lock"
-                                    placeholder="Enter your Password"
-                                    secureTextEntry={true}
-                                    onChangeText={handleChange('password')}
-                                    onBlur={handleBlur('password')}
-                                    value={values.password}
-                                    error={errors.password}
-                                    touched={touched.password}
-                                />
+                <Box>
+                    <Box marginBottom="m">
+                        <TextInputField
+                            icon="mail"
+                            placeholder="Enter your Email"
+                            onChangeText={handleChange('email')}
+                            onBlur={handleBlur('email')}
+                            value={values.email}
+                            error={errors.email}
+                            touched={touched.email}
+                        />
+                    </Box>
+                    <TextInputField
+                        icon="lock"
+                        placeholder="Enter your Password"
+                        secureTextEntry={true}
+                        onChangeText={handleChange('password')}
+                        onBlur={handleBlur('password')}
+                        value={values.password}
+                        error={errors.password}
+                        touched={touched.password}
+                    />
 
-                                <Box flexDirection="row" justifyContent="space-between">
-                                    <CheckBoxField
-                                        label="Remember me"
-                                        checked={values.remember}
-                                        onChange={() => setFieldValue('remember', !values.remember)}
-                                    />
-                                    <Button variant="transparent" onPress={() => true}>
-                                        <Text color="primary">Forgot password</Text>
-                                    </Button>
-                                </Box>
-                                <Box alignItems="center" marginTop="m">
-                                    <Button variant="primary" onPress={handleSubmit} label="Log into your account" />
-                                </Box>
-                            </Box>
-                        )
-                    }
-                </Formik>
-
+                    <Box flexDirection="row" justifyContent="space-between">
+                        <CheckBoxField
+                            label="Remember me"
+                            checked={values.remember}
+                            onChange={() => setFieldValue('remember', !values.remember)}
+                        />
+                        <Button variant="transparent" onPress={() => true}>
+                            <Text color="primary">Forgot password</Text>
+                        </Button>
+                    </Box>
+                    <Box alignItems="center" marginTop="m">
+                        <Button variant="primary" onPress={handleSubmit} label="Log into your account" />
+                    </Box>
+                </Box>
             </Box>
         </Container>
     );
