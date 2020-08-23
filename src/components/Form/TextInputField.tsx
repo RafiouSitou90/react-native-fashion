@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react';
 import {StyleSheet, TextInput, TextInputProps} from "react-native";
 import { Feather as Icon } from "@expo/vector-icons";
 
-import {Box, useTheme} from "../../../components";
+import {Box, RoundedIcon, useTheme} from "../index";
 
 interface TextInputFieldProps extends TextInputProps {
     icon: string;
@@ -13,7 +13,7 @@ interface TextInputFieldProps extends TextInputProps {
 const TextInputField = forwardRef<TextInput, TextInputFieldProps>(
     ({ icon, error, touched, ...props }, ref) => {
     const theme = useTheme();
-    const SIZE = theme.borderRadii.m * 2.5;
+    const SIZE = theme.borderRadii.m * 2.1;
 
     const reColor = !touched ? "text" : (error ? "danger" : "primary")
     const color = theme.colors[reColor];
@@ -40,23 +40,12 @@ const TextInputField = forwardRef<TextInput, TextInputFieldProps>(
             </Box>
             {
                 touched && (
-                    <Box
-                        height={SIZE}
-                        width={SIZE}
-                        borderRadius="m"
-                        justifyContent="center"
-                        alignItems="center"
+                    <RoundedIcon
+                        name={!error ? "check" : "x"}
+                        size={SIZE}
+                        color="white"
                         backgroundColor={!error ? "primary" : "danger"}
-                        marginHorizontal="s"
-                        style={{ borderRadius: SIZE / 2 }}
-                    >
-                        <Icon
-                            name={!error ? "check" : "x"}
-                            color="white"
-                            size={16}
-                            style={{ textAlign: "center" }}
-                        />
-                    </Box>
+                    />
                 )
             }
         </Box>

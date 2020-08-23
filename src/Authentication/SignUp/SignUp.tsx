@@ -3,7 +3,7 @@ import {useFormik} from "formik";
 import {TextInput} from "react-native";
 import * as yup from "yup";
 
-import TextInputField from "../components/Form/TextInputField";
+import TextInputField from "../../components/Form/TextInputField";
 import {Box, Button, Container, Text} from "../../components";
 import {Routes, StackNavigationProps} from "../../components/Navigation";
 import Footer from "../components/Footer";

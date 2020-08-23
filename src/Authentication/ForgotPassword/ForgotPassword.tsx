@@ -6,7 +6,7 @@ import * as yup from "yup";
 import Footer from "../components/Footer";
 import {Box, Button, Container, Text} from "../../components";
 import {Routes, StackNavigationProps} from "../../components/Navigation";
-import TextInputField from "../components/Form/TextInputField";
+import TextInputField from "../../components/Form/TextInputField";
 
 const forgotPasswordSchema = yup.object().shape({
     email: yup.string().email().trim().lowercase().required(),

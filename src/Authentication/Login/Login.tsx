@@ -4,8 +4,8 @@ import * as yup from "yup";
 
 import {Routes, StackNavigationProps} from "../../components/Navigation";
 import {Container, Button, Text, Box} from "../../components"
-import TextInputField from '../components/Form/TextInputField';
-import CheckBoxField from "../components/Form/CheckBoxField";
+import TextInputField from '../../components/Form/TextInputField';
+import CheckBoxField from "../../components/Form/CheckBoxField";
 import Footer from "../components/Footer";
 import {TextInput} from "react-native";
 
