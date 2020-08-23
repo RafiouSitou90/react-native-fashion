@@ -1,6 +1,5 @@
 import React from 'react';
 import { Formik } from "formik"
-// @ts-ignore
 import * as yup from "yup";
 
 import {Routes, StackNavigationProps} from "../../components/Navigation";

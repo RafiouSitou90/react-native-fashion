@@ -41,6 +41,7 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-native": "^0.63.2",
+    "@types/yup": "^0.29.6",
     "eslint": "^7.5.0",
     "eslint-config-react-native-wcandillon": "^3.3.3",
     "eslint-plugin-import": "^2.22.0",
