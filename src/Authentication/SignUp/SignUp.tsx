@@ -8,8 +8,6 @@ import {Box, Button, Container, Text} from "../../components";
 import {Routes, StackNavigationProps} from "../../components/Navigation";
 import Footer from "../components/Footer";
 
-// interface SignUpProps {}
-
 const signUpSchema = yup.object().shape({
     email: yup.string().email().trim().lowercase().required(),
     password: yup.string().trim().min(8).required(),
