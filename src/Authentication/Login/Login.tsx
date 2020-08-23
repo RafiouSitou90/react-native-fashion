@@ -45,7 +45,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
         <Container {... { footer }}>
             <Box padding="xl">
                 <Text variant="title1" textAlign="center">Welcome back</Text>
-                <Text variant="body" textAlign="center" marginBottom="l">
+                <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
                     Use your credentials below and login to your account
                 </Text>
 
@@ -89,7 +89,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
                             checked={values.remember}
                             onChange={() => setFieldValue('remember', !values.remember)}
                         />
-                        <Button variant="transparent" onPress={() => true}>
+                        <Button variant="transparent" onPress={() => navigation.navigate("ForgotPassword")}>
                             <Text color="primary">Forgot password</Text>
                         </Button>
                     </Box>
