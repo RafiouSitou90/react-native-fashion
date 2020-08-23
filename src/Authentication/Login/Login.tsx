@@ -14,13 +14,13 @@ const loginSchema = yup.object().shape({
     password: yup.string().trim().min(8).required()
 });
 
-const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
+const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
 
     const footer = (
         <Footer
             title="Don't have an account?"
             action="Sign Up here"
-            onPress={() => true}
+            onPress={() => navigation.navigate("SignUp")}
         />
     );
 
@@ -82,7 +82,7 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
                         onSubmitEditing={() => handleSubmit()}
                     />
 
-                    <Box flexDirection="row" justifyContent="space-between">
+                    <Box flexDirection="row" justifyContent="space-between" marginTop="s">
                         <CheckBoxField
                             label="Remember me"
                             checked={values.remember}

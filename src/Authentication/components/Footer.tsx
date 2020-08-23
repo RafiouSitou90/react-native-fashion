@@ -4,7 +4,7 @@ import SocialLogin from "./SocialLogin";
 import {TouchableWithoutFeedback} from "react-native";
 
 interface FooterProps {
-    onPress: () => true;
+    onPress: () => void;
     title: string;
     action: string;
 }
