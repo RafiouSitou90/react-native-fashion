@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {useFormik} from "formik"
 import * as yup from "yup";
 
 import {Routes, StackNavigationProps} from "../../components/Navigation";
 import {Container, Button, Text, Box} from "../../components"
-import SocialLogin from '../components/SocialLogin';
 import TextInputField from '../components/Form/TextInputField';
 import CheckBoxField from "../components/Form/CheckBoxField";
+import Footer from "../components/Footer";
 
 
 const loginSchema = yup.object().shape({
@@ -17,20 +17,11 @@ const loginSchema = yup.object().shape({
 const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
 
     const footer = (
-        <>
-            <SocialLogin />
-            <Box alignItems="center">
-                <Button
-                    variant="transparent"
-                    onPress={() => alert("Sign Up")}
-                >
-                    <Box flexDirection="row" justifyContent="center">
-                        <Text variant="button" color="white">Don't have an account?</Text>
-                        <Text marginLeft="s" variant="button" color="primary">Sign Up here</Text>
-                    </Box>
-                </Button>
-            </Box>
-        </>
+        <Footer
+            title="Don't have an account?"
+            action="Sign Up here"
+            onPress={() => true}
+        />
     );
 
     const {
@@ -46,6 +37,8 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
         initialValues:{email: "", password: "", remember: false},
         onSubmit: values => console.log(values)
     });
+
+    const password = useRef<typeof TextInputField>(null)
 
     return (
         <Container {... { footer }}>
@@ -65,9 +58,15 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
                             value={values.email}
                             error={errors.email}
                             touched={touched.email}
+                            autoCompleteType="email"
+                            autoCapitalize="none"
+                            returnKeyType="next"
+                            returnKeyLabel="Next"
+                            onSubmitEditing={() => password.current?.focus()}
                         />
                     </Box>
                     <TextInputField
+                        ref={password}
                         icon="lock"
                         placeholder="Enter your Password"
                         secureTextEntry={true}
@@ -76,6 +75,11 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
                         value={values.password}
                         error={errors.password}
                         touched={touched.password}
+                        autoCompleteType="password"
+                        autoCapitalize="none"
+                        returnKeyType="go"
+                        returnKeyLabel="Go"
+                        onSubmitEditing={() => handleSubmit()}
                     />
 
                     <Box flexDirection="row" justifyContent="space-between">
@@ -88,7 +92,7 @@ const Login = ({  }: StackNavigationProps<Routes, "Login">) => {
                             <Text color="primary">Forgot password</Text>
                         </Button>
                     </Box>
-                    <Box alignItems="center" marginTop="m">
+                    <Box alignItems="center" marginTop="xl">
                         <Button variant="primary" onPress={handleSubmit} label="Log into your account" />
                     </Box>
                 </Box>
