@@ -8,8 +8,8 @@ export const theme = {
         danger: "#FF0058",
         text: "rgba(12, 13, 52, 0.7)",
         grey: "rgba(12, 13, 52, 0.05)",
-        // darkGrey: "#8A8D90",
-        white: "white"
+        white: "white",
+        primaryLight: "#E7F9F7"
     },
     spacing: {
         o: 0,
