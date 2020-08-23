@@ -49,7 +49,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
     const passwordConfirmation = useRef<TextInput>(null)
 
     return (
-        <Container {... { footer }}>
+        <Container pattern={1} {... { footer }}>
             <Box padding="xl">
                 <Text variant="title1" textAlign="center">Create an account</Text>
                 <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
