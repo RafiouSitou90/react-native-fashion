@@ -5,14 +5,14 @@ import * as yup from "yup";
 
 import Footer from "../components/Footer";
 import {Box, Button, Container, Text} from "../../components";
-import {AuthenticationRoutes, StackNavigationProps} from "../../components/Navigation";
+import {AuthNavigationProps} from "../../components/Navigation";
 import TextInputField from "../../components/Form/TextInputField";
 
 const forgotPasswordSchema = yup.object().shape({
     email: yup.string().email().trim().lowercase().required(),
 });
 
-const ForgotPassword = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "ForgotPassword">) => {
+const ForgotPassword = ({ navigation }:  AuthNavigationProps<"ForgotPassword">) => {
     const {
         handleChange,
         handleBlur,

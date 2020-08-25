@@ -1,12 +1,13 @@
-import { ParamListBase, RouteProp } from "@react-navigation/native";
+import {CompositeNavigationProp, RouteProp} from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import {DrawerNavigationProp} from "@react-navigation/drawer";
 
-export interface StackNavigationProps<
-    ParamList extends ParamListBase,
-    RouteName extends keyof ParamList = string
-> {
-    navigation: StackNavigationProp<ParamList, RouteName>;
-    route: RouteProp<ParamList, RouteName>;
+export interface AuthNavigationProps<RouteName extends keyof AuthenticationRoutes> {
+    navigation: CompositeNavigationProp<
+        StackNavigationProp<AuthenticationRoutes, RouteName>,
+        DrawerNavigationProp<AppRoutes, "Home">
+    >
+    route: RouteProp<AuthenticationRoutes, RouteName>;
 }
 
 

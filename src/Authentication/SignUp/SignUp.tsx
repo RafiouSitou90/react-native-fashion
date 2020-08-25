@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 import TextInputField from "../../components/Form/TextInputField";
 import {Box, Button, Container, Text} from "../../components";
-import {AuthenticationRoutes, StackNavigationProps} from "../../components/Navigation";
+import {AuthNavigationProps} from "../../components/Navigation";
 import Footer from "../components/Footer";
 
 const signUpSchema = yup.object().shape({
@@ -18,7 +18,7 @@ const signUpSchema = yup.object().shape({
         .required()
 });
 
-const SignUp = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "SignUp">) => {
+const SignUp = ({ navigation }:  AuthNavigationProps<"SignUp">) => {
 
     const footer = (
         <Footer
