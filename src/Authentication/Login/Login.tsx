@@ -53,59 +53,57 @@ const Login = ({ navigation }: LoginProps) => {
 
     return (
         <Container pattern={0} {... { footer }}>
-            <Box padding="xl">
-                <Text variant="title1" textAlign="center">Welcome back</Text>
-                <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
-                    Use your credentials below and login to your account
-                </Text>
+            <Text variant="title1" textAlign="center">Welcome back</Text>
+            <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
+                Use your credentials below and login to your account
+            </Text>
 
-                <Box>
-                    <Box marginBottom="m">
-                        <TextInputField
-                            icon="mail"
-                            placeholder="Enter your Email"
-                            onChangeText={handleChange('email')}
-                            onBlur={handleBlur('email')}
-                            value={values.email}
-                            error={errors.email}
-                            touched={touched.email}
-                            autoCompleteType="email"
-                            autoCapitalize="none"
-                            returnKeyType="next"
-                            returnKeyLabel="Next"
-                            onSubmitEditing={() => password.current?.focus()}
-                        />
-                    </Box>
+            <Box>
+                <Box marginBottom="m">
                     <TextInputField
-                        ref={password}
-                        icon="lock"
-                        placeholder="Enter your Password"
-                        secureTextEntry={true}
-                        onChangeText={handleChange('password')}
-                        onBlur={handleBlur('password')}
-                        value={values.password}
-                        error={errors.password}
-                        touched={touched.password}
-                        autoCompleteType="password"
+                        icon="mail"
+                        placeholder="Enter your Email"
+                        onChangeText={handleChange('email')}
+                        onBlur={handleBlur('email')}
+                        value={values.email}
+                        error={errors.email}
+                        touched={touched.email}
+                        autoCompleteType="email"
                         autoCapitalize="none"
-                        returnKeyType="go"
-                        returnKeyLabel="Go"
-                        onSubmitEditing={() => handleSubmit()}
+                        returnKeyType="next"
+                        returnKeyLabel="Next"
+                        onSubmitEditing={() => password.current?.focus()}
                     />
+                </Box>
+                <TextInputField
+                    ref={password}
+                    icon="lock"
+                    placeholder="Enter your Password"
+                    secureTextEntry={true}
+                    onChangeText={handleChange('password')}
+                    onBlur={handleBlur('password')}
+                    value={values.password}
+                    error={errors.password}
+                    touched={touched.password}
+                    autoCompleteType="password"
+                    autoCapitalize="none"
+                    returnKeyType="go"
+                    returnKeyLabel="Go"
+                    onSubmitEditing={() => handleSubmit()}
+                />
 
-                    <Box flexDirection="row" justifyContent="space-between" marginTop="s">
-                        <CheckBoxField
-                            label="Remember me"
-                            checked={values.remember}
-                            onChange={() => setFieldValue('remember', !values.remember)}
-                        />
-                        <Button variant="transparent" onPress={() => navigation.navigate("ForgotPassword")}>
-                            <Text color="primary">Forgot password</Text>
-                        </Button>
-                    </Box>
-                    <Box alignItems="center" marginTop="xl">
-                        <Button variant="primary" onPress={handleSubmit} label="Log into your account" />
-                    </Box>
+                <Box flexDirection="row" justifyContent="space-between" marginTop="s">
+                    <CheckBoxField
+                        label="Remember me"
+                        checked={values.remember}
+                        onChange={() => setFieldValue('remember', !values.remember)}
+                    />
+                    <Button variant="transparent" onPress={() => navigation.navigate("ForgotPassword")}>
+                        <Text color="primary">Forgot password</Text>
+                    </Button>
+                </Box>
+                <Box alignItems="center" marginTop="xl">
+                    <Button variant="primary" onPress={handleSubmit} label="Log into your account" />
                 </Box>
             </Box>
         </Container>

@@ -36,32 +36,30 @@ const ForgotPassword = ({ navigation }: StackNavigationProps<AuthenticationRoute
 
     return (
         <Container pattern={2} {... { footer }}>
-            <Box padding="xl" justifyContent="center" flex={1}>
-                <Text variant="title1" textAlign="center">Forgot password?</Text>
-                <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
-                    Enter the email address associated with your account
-                </Text>
+            <Text variant="title1" textAlign="center">Forgot password?</Text>
+            <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
+                Enter the email address associated with your account
+            </Text>
 
-                <Box marginTop="m">
-                    <Box marginBottom="m">
-                        <TextInputField
-                            icon="mail"
-                            placeholder="Enter your Email"
-                            onChangeText={handleChange('email')}
-                            onBlur={handleBlur('email')}
-                            value={values.email}
-                            error={errors.email}
-                            touched={touched.email}
-                            autoCompleteType="email"
-                            autoCapitalize="none"
-                            returnKeyType="go"
-                            returnKeyLabel="Go"
-                            onSubmitEditing={() => handleSubmit()}
-                        />
-                    </Box>
-                    <Box alignItems="center" marginTop="xl">
-                        <Button variant="primary" onPress={handleSubmit} label="Reset password" />
-                    </Box>
+            <Box marginTop="m">
+                <Box marginBottom="m">
+                    <TextInputField
+                        icon="mail"
+                        placeholder="Enter your Email"
+                        onChangeText={handleChange('email')}
+                        onBlur={handleBlur('email')}
+                        value={values.email}
+                        error={errors.email}
+                        touched={touched.email}
+                        autoCompleteType="email"
+                        autoCapitalize="none"
+                        returnKeyType="go"
+                        returnKeyLabel="Go"
+                        onSubmitEditing={() => handleSubmit()}
+                    />
+                </Box>
+                <Box alignItems="center" marginTop="xl">
+                    <Button variant="primary" onPress={handleSubmit} label="Reset password" />
                 </Box>
             </Box>
         </Container>
