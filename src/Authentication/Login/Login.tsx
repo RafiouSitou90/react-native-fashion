@@ -1,13 +1,16 @@
 import React, {useRef} from 'react';
+import { CompositeNavigationProp } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
 import {useFormik} from "formik"
 import * as yup from "yup";
+import {TextInput} from "react-native";
 
-import {Routes, StackNavigationProps} from "../../components/Navigation";
+import {AuthenticationRoutes, HomeRoutes} from "../../components/Navigation";
 import {Container, Button, Text, Box} from "../../components"
 import TextInputField from '../../components/Form/TextInputField';
 import CheckBoxField from "../../components/Form/CheckBoxField";
 import Footer from "../components/Footer";
-import {TextInput} from "react-native";
 
 
 const loginSchema = yup.object().shape({
@@ -15,7 +18,14 @@ const loginSchema = yup.object().shape({
     password: yup.string().trim().min(8).required()
 });
 
-const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
+interface LoginProps {
+    navigation: CompositeNavigationProp<
+        StackNavigationProp<AuthenticationRoutes, "Login">,
+        DrawerNavigationProp<HomeRoutes, "OutfitIdeas">
+    >
+}
+
+const Login = ({ navigation }: LoginProps) => {
 
     const footer = (
         <Footer
@@ -36,7 +46,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
     } = useFormik({
         validationSchema:loginSchema,
         initialValues:{email: "", password: "", remember: false},
-        onSubmit: values => console.log(values)
+        onSubmit: () => navigation.navigate("Home")
     });
 
     const password = useRef<TextInput>(null)

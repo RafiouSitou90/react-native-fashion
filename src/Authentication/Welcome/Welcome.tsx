@@ -2,7 +2,7 @@ import React from 'react';
 import {Dimensions, Image} from "react-native";
 
 import {Box, useTheme, Text, Button} from "../../components";
-import {Routes, StackNavigationProps} from "../../components/Navigation";
+import {AuthenticationRoutes, StackNavigationProps} from "../../components/Navigation";
 
 const { width } = Dimensions.get("window");
 
@@ -14,7 +14,7 @@ const picture = {
 
 export const assets = [picture.src];
 
-const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
+const Welcome = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "Welcome">) => {
     const theme = useTheme();
 
     return (

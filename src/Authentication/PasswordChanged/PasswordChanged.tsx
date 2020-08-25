@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {Box, Button, Container, Text, RoundedIconButton, RoundedIcon} from "../../components";
-import {Routes, StackNavigationProps} from "../../components/Navigation";
+import {AuthenticationRoutes, StackNavigationProps} from "../../components/Navigation";
 
 const SIZE = 80;
 
-const PasswordChanged = ({ navigation }: StackNavigationProps<Routes, "PasswordChanged">) => {
+const PasswordChanged = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "PasswordChanged">) => {
 
     return (
         <Container
