@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {Box, Button, Container, Text, RoundedIconButton, RoundedIcon} from "../../components";
-import {Routes, StackNavigationProps} from "../../components/Navigation";
+import {AuthenticationRoutes, StackNavigationProps} from "../../components/Navigation";
 
 const SIZE = 80;
 
-const PasswordChanged = ({ navigation }: StackNavigationProps<Routes, "PasswordChanged">) => {
+const PasswordChanged = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "PasswordChanged">) => {
 
     return (
         <Container
@@ -22,28 +22,27 @@ const PasswordChanged = ({ navigation }: StackNavigationProps<Routes, "PasswordC
                 </Box>
             }
         >
-            <Box flex={1} justifyContent="center" alignItems="center">
+            <Box alignSelf="center">
                 <RoundedIcon
                     name="check"
                     size={SIZE}
                     color="primary"
                     backgroundColor="primaryLight"
                 />
+            </Box>
+            <Text variant="title1" textAlign="center" marginVertical="l">
+                Your password was successfully changed
+            </Text>
+            <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
+                Close this window and login again
+            </Text>
 
-                <Text variant="title1" textAlign="center" marginVertical="l">
-                    Your password was successfully changed
-                </Text>
-                <Text variant="body" textAlign="center" marginBottom="l" marginTop="l">
-                    Close this window and login again
-                </Text>
-
-                <Box alignItems="center" marginTop="l">
-                    <Button
-                        variant="primary"
-                        label="Login again"
-                        onPress={() => navigation.navigate("Login")}
-                    />
-                </Box>
+            <Box alignItems="center" marginTop="l">
+                <Button
+                    variant="primary"
+                    label="Login again"
+                    onPress={() => navigation.navigate("Login")}
+                />
             </Box>
         </Container>
     );
