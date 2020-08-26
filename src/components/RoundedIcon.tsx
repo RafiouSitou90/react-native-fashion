@@ -7,10 +7,11 @@ export interface RoundedIconProps {
     size: number;
     color: keyof Theme["colors"];
     backgroundColor: keyof Theme["colors"];
+    iconRatio: number;
 }
 
-const RoundedIcon = ({ name, size, color, backgroundColor }: RoundedIconProps) => {
-    const iconSize = size * 0.7;
+const RoundedIcon = ({ name, size, color, backgroundColor, iconRatio }: RoundedIconProps) => {
+    const iconSize = size * iconRatio;
 
     return (
         <Box
@@ -28,5 +29,9 @@ const RoundedIcon = ({ name, size, color, backgroundColor }: RoundedIconProps) =
         </Box>
     );
 };
+
+RoundedIcon.defaulProps = {
+    iconRatio: 0.7
+}
 
 export default RoundedIcon;
