@@ -45,6 +45,7 @@ const TextInputField = forwardRef<TextInput, TextInputFieldProps>(
                         size={SIZE}
                         color="white"
                         backgroundColor={!error ? "primary" : "danger"}
+                        iconRatio={0.7}
                     />
                 )
             }

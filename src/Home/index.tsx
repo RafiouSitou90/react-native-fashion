@@ -3,11 +3,16 @@ import {createDrawerNavigator} from "@react-navigation/drawer";
 
 import OutfitIdeas from "./OutfitIdeas";
 import {HomeRoutes} from "../components/Navigation";
+import DrawerContent, { DRAWER_WIDTH } from "./Drawer";
 
-const Drawer = createDrawerNavigator<HomeRoutes>();
+const AppDrawer = createDrawerNavigator<HomeRoutes>();
 
 export const HomeNavigator = () => (
-    <Drawer.Navigator>
-        <Drawer.Screen name="OutfitIdeas" component={OutfitIdeas} />
-    </Drawer.Navigator>
+    <AppDrawer.Navigator
+        drawerContent={DrawerContent}
+        drawerStyle={{ width: DRAWER_WIDTH }}
+        initialRouteName="OutfitIdeas"
+    >
+        <AppDrawer.Screen name="OutfitIdeas" component={OutfitIdeas} />
+    </AppDrawer.Navigator>
 );
