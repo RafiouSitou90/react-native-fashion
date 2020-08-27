@@ -5,6 +5,8 @@ import OutfitIdeas from "./OutfitIdeas";
 import {HomeRoutes} from "../components/Navigation";
 import DrawerContent, { DRAWER_WIDTH } from "./Drawer";
 
+export { assets } from "./Drawer";
+
 const AppDrawer = createDrawerNavigator<HomeRoutes>();
 
 export const HomeNavigator = () => (

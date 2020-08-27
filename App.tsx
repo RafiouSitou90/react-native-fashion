@@ -7,10 +7,10 @@ import {createStackNavigator} from "@react-navigation/stack";
 import { assets as authenticationAssets, AuthenticationNavigator } from "./src/Authentication";
 import { theme } from './src/components/Theme';
 import { LoadAssets } from "./src/components";
-import { HomeNavigator } from "./src/Home";
+import { HomeNavigator, assets as homeAssets } from "./src/Home";
 import {AppRoutes} from "./src/components/Navigation";
 
-const assets = [...authenticationAssets];
+const assets = [...authenticationAssets, homeAssets];
 
 const fonts = {
     "Bold": require("./assets/fonts/SFPro-Display-Bold.ttf"),

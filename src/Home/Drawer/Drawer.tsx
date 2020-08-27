@@ -1,10 +1,11 @@
 import React from 'react';
 import {Dimensions, Image} from "react-native";
 import Constants from "expo-constants"
-// import {useSafeAreaInsets} from "react-native-safe-area-context";
 
-import {Box, Text, RoundedIconButton, useTheme} from '../../components';
+import {Box, Text, RoundedIconButton} from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
+
+export const assets = [require("./assets/drawer.jpg")];
 
 const { width } = Dimensions.get("window");
 export const DRAWER_WIDTH = width * 0.8;
@@ -92,18 +93,6 @@ const Drawer = () => {
             </Box>
             <Box flex={0.8}>
                 <Box flex={1} backgroundColor="secondary" />
-                <Box flex={1} backgroundColor="primaryLight" />
-                <Image
-                    source={require("../../components/assets/patterns/11.jpg")}
-                    style={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        bottom: -height * 0.61,
-                        width: DRAWER_WIDTH,
-                        height
-                    }}
-                />
                 <Box
                     position="absolute"
                     top={0}
@@ -140,12 +129,8 @@ const Drawer = () => {
                 height={ height * 0.61 }
             >
                 <Image
-                    source={require("../../components/assets/patterns/11.jpg")}
+                    source={assets[0]}
                     style={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        top: -height * (1 - 0.61),
                         width: DRAWER_WIDTH,
                         height,
                         // borderTopLeftRadius: theme.borderRadii.xl
