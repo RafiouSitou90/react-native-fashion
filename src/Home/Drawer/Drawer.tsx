@@ -1,8 +1,7 @@
 import React from 'react';
 import {Dimensions, Image} from "react-native";
-import Constants from "expo-constants"
 
-import {Box, Text, RoundedIconButton} from '../../components';
+import {Box, Text, Header} from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
 
 export const assets = [require("./assets/drawer.jpg")];
@@ -66,28 +65,11 @@ const Drawer = () => {
                     bottom={0}
                     borderBottomRightRadius="xl"
                     backgroundColor="secondary"
-                    flexDirection="row"
-                    justifyContent="space-between"
-                    paddingHorizontal="m"
-                    // style={{ paddingTop: insets.top }}
-                    style={{ paddingTop: Constants.statusBarHeight + 10 }}
                 >
-                    <RoundedIconButton
-                        name="x"
-                        color="white"
-                        backgroundColor="secondary"
-                        onPress={() => true}
-                        size={25}
-                        iconRatio={0.7}
-                    />
-                    <Text color="white">MY PROFILE</Text>
-                    <RoundedIconButton
-                        name="shopping-bag"
-                        color="white"
-                        backgroundColor="secondary"
-                        onPress={() => true}
-                        size={25}
-                        iconRatio={0.7}
+                    <Header
+                        left={{ icon: "x", onPress: () => true }}
+                        right={{ icon: "shopping-bag", onPress: () => true }}
+                        title="Fashion Menu"
                     />
                 </Box>
             </Box>

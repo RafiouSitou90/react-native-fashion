@@ -60,6 +60,12 @@ export const theme = {
             fontFamily: "Medium",
             color: "text",
             textAlign: "center"
+        },
+        header: {
+            fontSize: 12,
+            fontFamily: 'SemiBold',
+            lineHeight: 24,
+            color: 'secondary'
         }
     },
     breakpoints: {
