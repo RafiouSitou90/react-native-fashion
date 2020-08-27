@@ -1,10 +1,11 @@
 import React from 'react';
 import {Dimensions, Image} from "react-native";
-import Constants from "expo-constants"
-// import {useSafeAreaInsets} from "react-native-safe-area-context";
 
-import {Box, Text, RoundedIconButton, useTheme} from '../../components';
+import {Box, Text, Header} from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
+import { DrawerActions } from '@react-navigation/native';
+
+export const assets = [require("./assets/drawer.jpg")];
 
 const { width } = Dimensions.get("window");
 export const DRAWER_WIDTH = width * 0.8;
@@ -50,10 +51,12 @@ const items: DrawerItemProps[] = [
     }
 ];
 
-const Drawer = () => {
-    // const insets = useSafeAreaInsets();
-    // const theme = useTheme();
+interface DrawerProps {
+    navigation: any
+}
 
+const Drawer = ({ navigation }: DrawerProps) => {
+    // const navigation = useNavigation();
     return (
         <Box flex={1}>
             <Box flex={0.2} backgroundColor="white">
@@ -65,45 +68,20 @@ const Drawer = () => {
                     bottom={0}
                     borderBottomRightRadius="xl"
                     backgroundColor="secondary"
-                    flexDirection="row"
-                    justifyContent="space-between"
-                    paddingHorizontal="m"
-                    // style={{ paddingTop: insets.top }}
-                    style={{ paddingTop: Constants.statusBarHeight + 10 }}
                 >
-                    <RoundedIconButton
-                        name="x"
-                        color="white"
-                        backgroundColor="secondary"
-                        onPress={() => true}
-                        size={25}
-                        iconRatio={0.7}
-                    />
-                    <Text color="white">MY PROFILE</Text>
-                    <RoundedIconButton
-                        name="shopping-bag"
-                        color="white"
-                        backgroundColor="secondary"
-                        onPress={() => true}
-                        size={25}
-                        iconRatio={0.7}
+                    <Header
+                        left={{
+                            icon: "x",
+                            onPress: () => navigation.dispatch(DrawerActions.closeDrawer())
+                        }}
+                        right={{ icon: "shopping-bag", onPress: () => true }}
+                        title="Fashion Menu"
+                        dark
                     />
                 </Box>
             </Box>
             <Box flex={0.8}>
-                <Box flex={1} backgroundColor="secondary" />
-                <Box flex={1} backgroundColor="primaryLight" />
-                <Image
-                    source={require("../../components/assets/patterns/11.jpg")}
-                    style={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        bottom: -height * 0.61,
-                        width: DRAWER_WIDTH,
-                        height
-                    }}
-                />
+                <Box flex={1} backgroundColor="customViolet" />
                 <Box
                     position="absolute"
                     top={0}
@@ -140,12 +118,8 @@ const Drawer = () => {
                 height={ height * 0.61 }
             >
                 <Image
-                    source={require("../../components/assets/patterns/11.jpg")}
+                    source={assets[0]}
                     style={{
-                        position: "absolute",
-                        left: 0,
-                        right: 0,
-                        top: -height * (1 - 0.61),
                         width: DRAWER_WIDTH,
                         height,
                         // borderTopLeftRadius: theme.borderRadii.xl
