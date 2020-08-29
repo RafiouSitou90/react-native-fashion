@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import {Box, Text} from "../../components";
-import BorderlessTap from "./BorderlessTap";
+import {Box, Text, BorderlessTap} from "../../components";
 
 const INNER_RADIUS = 30;
 const OUTER_RADIUS = 34;
