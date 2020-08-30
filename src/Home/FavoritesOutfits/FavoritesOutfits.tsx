@@ -5,6 +5,7 @@ import {HomeNavigationProps} from "../../components/Navigation";
 import {Box, Header, useTheme} from "../../components";
 import Footer from "./Footer";
 import Outfit from "./Outfit";
+import TopCurve from "./TopCurve";
 import {Transition, Transitioning, TransitioningView} from "react-native-reanimated";
 
 const { width: wWidth } = Dimensions.get("window");
@@ -101,6 +102,7 @@ const FavoritesOutfits = ({ navigation }: HomeNavigationProps<"FavoritesOutfits"
                         </Box>
                     </Transitioning.View>
                 </ScrollView>
+                <TopCurve footerHeight={footerHeight} />
                 <Box
                     position="absolute"
                     bottom={0}

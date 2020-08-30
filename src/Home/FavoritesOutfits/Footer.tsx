@@ -12,7 +12,7 @@ const Footer = ({ label, onPress }: FooterProps) => {
     const insets = useSafeAreaInsets();
 
     return (
-        <Box backgroundColor="secondary" padding="xl" borderTopLeftRadius="xl">
+        <Box backgroundColor="secondary" padding="l" borderTopLeftRadius="xl">
             <Box
                 backgroundColor="secondary"
                 alignItems="center"
