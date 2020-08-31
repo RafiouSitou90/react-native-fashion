@@ -6,36 +6,43 @@ import Graph, {DataPoint} from "./Graph";
 
 const data: DataPoint[] = [
     {
+        id: 245670,
         date: new Date("2019-09-01").getTime(),
         value: 0,
         color: "primary"
     },
     {
+        id: 245671,
         date: new Date("2019-10-01").getTime(),
         value: 0,
         color: "primary"
     },
     {
+        id: 245672,
         date: new Date("2019-11-01").getTime(),
         value: 139.42,
         color: "primary"
     },
     {
+        id: 245673,
         date: new Date("2019-12-01").getTime(),
         value: 281.23,
         color: "orange"
     },
     {
+        id: 245674,
         date: new Date("2020-01-01").getTime(),
         value: 0,
         color: "primary"
     },
     {
+        id: 245675,
         date: new Date("2020-02-01").getTime(),
         value: 198.54,
         color: "yellow"
     },
     {
+        id: 245676,
         date: new Date("2020-03-01").getTime(),
         value: 0,
         color: "primary"
