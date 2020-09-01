@@ -33,7 +33,12 @@ const DrawerItem = ({ icon, color, label, ...props }: DrawerItemProps) => {
     return (
         <RectButton
             style={{ borderRadius: theme.borderRadii.s }}
-            onPress={() => screen ? navigation.navigate(screen) : onPress(navigation)}>
+            onPress={() =>
+                screen in props
+                    ? navigation.navigate(screen)
+                    : onPress(navigation)
+            }
+        >
             <Box flexDirection="row" alignItems="center" padding="m">
                 <RoundedIcon
                     iconRatio={0.5}
