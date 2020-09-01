@@ -3,7 +3,7 @@ import {Dimensions, Image} from "react-native";
 
 import {Box, Text, Header} from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
-import { DrawerActions } from '@react-navigation/native';
+import { DrawerActions, CommonActions } from '@react-navigation/native';
 
 export const assets = [require("./assets/drawer.jpg")];
 
@@ -46,7 +46,12 @@ const items: DrawerItemProps[] = [
     {
         icon: "log-out",
         label: "Logout",
-        screen: "FavoritesOutfits",
+        onPress: (navigation) => navigation.dispatch(CommonActions.reset({
+            index: 0,
+            routes: [
+                { name: "Authentication" }
+            ]
+        })),
         color: "secondary"
     }
 ];
