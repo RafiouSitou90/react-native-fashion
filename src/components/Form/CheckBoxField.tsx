@@ -28,7 +28,7 @@ const CheckBoxField = ({ label, checked, onChange }: CheckBoxFieldProps) => {
                     borderColor="primary"
                     backgroundColor={checked ? "primary" : "background"}
                 >
-                    <Icon name="check" color="background" />
+                    <Icon name="check" color="white" />
                 </Box>
                 <Text variant="button">{label}</Text>
             </Box>

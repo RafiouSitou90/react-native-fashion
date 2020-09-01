@@ -4,6 +4,7 @@ import {Dimensions, Image} from "react-native";
 import {Box, Text, Header} from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
 import { DrawerActions, CommonActions } from '@react-navigation/native';
+import {palette} from "../../components/Theme";
 
 export const assets = [require("./assets/drawer.jpg")];
 
@@ -23,25 +24,25 @@ const items: DrawerItemProps[] = [
         icon: "heart",
         label: "Favorites Outfits",
         screen: "FavoritesOutfits",
-        color: "orange"
+        color: "drawer1"
     },
     {
         icon: "user",
         label: "Edit Profile",
         screen: "FavoritesOutfits",
-        color: "yellow"
+        color: "drawer2"
     },
     {
         icon: "clock",
         label: "Transaction History",
         screen: "TransactionHistory",
-        color: "pink"
+        color: "drawer3"
     },
     {
         icon: "settings",
         label: "Notifications Settings",
         screen: "FavoritesOutfits",
-        color: "violet"
+        color: "drawer4"
     },
     {
         icon: "log-out",
@@ -86,7 +87,7 @@ const Drawer = ({ navigation }: DrawerProps) => {
                 </Box>
             </Box>
             <Box flex={0.8}>
-                <Box flex={1} backgroundColor="customViolet" />
+                <Box flex={1} style={{ backgroundColor: palette.customViolet }} />
                 <Box
                     position="absolute"
                     top={0}

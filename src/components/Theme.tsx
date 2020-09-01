@@ -8,28 +8,37 @@ import {
 import {ImageStyle, TextStyle, ViewStyle} from "react-native";
 
 export const palette = {
-    white: "white"
+    white: "white",
+    green: "#2CB9B0",
+    orange: "#FE5E33",
+    yellow: "#FFC641",
+    pink: "#FF87A2",
+    violet: "#442CB9",
+    customViolet: "#160029",
+    customViolet2: "#120934",
+    lightblue: "#BFEAF5",
+    transparent: "transparent"
 }
 
 const theme = {
     colors: {
-        primary: "#2CB9B0",
+        primary: palette.green,
+        primaryLight: "#E7F9F7",
         secondary: "#0C0D34",
         danger: "#FF0058",
+        info: "#808080",
+        // lightGrey: "#FAFAFA",
         text: "rgba(12, 13, 52, 0.7)",
-        grey: "#F4F0EF",
-        lightGrey: "#FAFAFA",
-        darkGrey: "#808080",
+        // darkGrey: "#808080",
         background: palette.white,
-        primaryLight: "#E7F9F7",
-        orange: "#FE5E33",
-        yellow: "#FFC641",
-        pink: "#FF87A2",
-        violet: "#442CB9",
-        customViolet: "#160029",
-        customViolet2: "#120934",
-        lightblue: "#BFEAF5",
-        transparent: "transparent"
+        background2: "#F4F0EF",
+
+        graph1: palette.orange,
+        graph2: palette.yellow,
+        drawer1: palette.orange,
+        drawer2: palette.yellow,
+        drawer3: palette.pink,
+        drawer4: palette.violet
     },
     spacing: {
         o: 0,
@@ -89,8 +98,8 @@ const theme = {
         }
     },
     breakpoints: {
-        // phone: 0,
-        // tablet: 768,
+        phone: 0,
+        tablet: 768,
     },
 };
 

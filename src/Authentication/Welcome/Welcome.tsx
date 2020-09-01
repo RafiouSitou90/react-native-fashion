@@ -19,7 +19,7 @@ const Welcome = ({ navigation }:  AuthNavigationProps<"Welcome">) => {
 
     return (
         <Box flex={1} backgroundColor="background" >
-            <Box flex={1} borderBottomRightRadius="xl" backgroundColor="grey" justifyContent="flex-end">
+            <Box flex={1} borderBottomRightRadius="xl" backgroundColor="background2" justifyContent="flex-end">
                 <Image
                     source={picture.src}
                     style={{
@@ -30,7 +30,7 @@ const Welcome = ({ navigation }:  AuthNavigationProps<"Welcome">) => {
             </Box>
             <Box flex={1} borderTopLeftRadius="xl">
                 <Box
-                    backgroundColor="grey"
+                    backgroundColor="background2"
                     position="absolute"
                     top={0}
                     bottom={0}
