@@ -17,6 +17,7 @@ export const theme = {
         pink: "#FF87A2",
         violet: "#442CB9",
         customViolet: "#160029",
+        customViolet2: "#120934",
         lightblue: "#BFEAF5",
         transparent: "transparent"
     },
@@ -50,6 +51,11 @@ export const theme = {
         title2: {
             fontSize: 24,
             lineHeight: 30,
+            fontFamily: "SemiBold",
+            color: "secondary"
+        },
+        title3: {
+            fontSize: 16,
             fontFamily: "SemiBold",
             color: "secondary"
         },
