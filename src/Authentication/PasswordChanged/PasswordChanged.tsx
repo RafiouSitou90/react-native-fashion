@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {Box, Button, Container, Text, RoundedIconButton, RoundedIcon} from "../../components";
-import {AuthenticationRoutes, StackNavigationProps} from "../../components/Navigation";
+import {AuthNavigationProps} from "../../components/Navigation";
 
 const SIZE = 80;
 
-const PasswordChanged = ({ navigation }: StackNavigationProps<AuthenticationRoutes, "PasswordChanged">) => {
+const PasswordChanged = ({ navigation }: AuthNavigationProps<"PasswordChanged">) => {
 
     return (
         <Container
@@ -16,8 +16,9 @@ const PasswordChanged = ({ navigation }: StackNavigationProps<AuthenticationRout
                         name="x"
                         size={60}
                         color="secondary"
-                        backgroundColor="white"
+                        backgroundColor="background"
                         onPress={() => navigation.pop()}
+                        iconRatio={0.7}
                     />
                 </Box>
             }
@@ -28,6 +29,7 @@ const PasswordChanged = ({ navigation }: StackNavigationProps<AuthenticationRout
                     size={SIZE}
                     color="primary"
                     backgroundColor="primaryLight"
+                    iconRatio={0.7}
                 />
             </Box>
             <Text variant="title1" textAlign="center" marginVertical="l">

@@ -1303,10 +1303,10 @@
     color "^3.1.2"
     react-native-iphone-x-helper "^1.2.1"
 
-"@shopify/restyle@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@shopify/restyle/-/restyle-1.1.0.tgz#6c564828983993c75356a5eca9e0fa943955c1bf"
-  integrity sha512-ooM6vSWns+kwjQlv74ivyJYqkCwcxHGEPu5Llrq7znx5UyJ8CFli1/4gWKXvDZntzbi3M2be7M5wCV4M+RuIUw==
+"@shopify/restyle@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@shopify/restyle/-/restyle-1.2.0.tgz#b051ffba7b46945be643e93fe49309534025f14e"
+  integrity sha512-I8ciyTKhToJWLMQ6Z2ez52yaa+o26tWxmF02QC2IlSotRWTwTgxbyD8UTVdt4AxhnA6JTJGYQMuXIUK8T3JS0w==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -4927,7 +4927,7 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
-moment@^2.22.2:
+moment@^2.22.2, moment@^2.27.0:
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
   integrity sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==

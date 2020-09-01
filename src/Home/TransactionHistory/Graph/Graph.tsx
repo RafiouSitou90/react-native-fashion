@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useLayoutEffect, useRef} from 'react';
 
 import {Box, useTheme} from "../../../components";
 import {Dimensions} from "react-native";
 import {Theme} from "../../../components/Theme";
 import Underlay, { MARGIN } from "../Graph/Underlay";
 import { lerp } from './Scale';
+import {Transition, Transitioning, TransitioningView} from 'react-native-reanimated';
 
 const { width: wWidth } = Dimensions.get("window");
 const aspectRatio = 195 / 305;
+const transition = (
+    <Transition.Together>
+        <Transition.In type="fade" durationMs={650} interpolation="easeInOut" />
+        <Transition.In type="slide-bottom" durationMs={650} interpolation="easeInOut" />
+    </Transition.Together>
+);
 
 export interface DataPoint {
     id: number;
@@ -21,6 +28,8 @@ interface GraphProps {
 }
 
 const Graph = ({ data }: GraphProps) => {
+    const ref = useRef<TransitioningView>(null);
+
     const theme = useTheme();
     const canvasWidth = wWidth - theme.spacing.m * 2;
     const canvasHeight = canvasWidth * aspectRatio;
@@ -33,10 +42,18 @@ const Graph = ({ data }: GraphProps) => {
     const minY = Math.min(...values);
     const maxY = Math.max(...values);
 
+    useLayoutEffect(() => {
+        ref.current?.animateNextTransition();
+    }, []);
+
     return (
         <Box marginTop="xl" paddingLeft={MARGIN} paddingBottom={MARGIN}>
             <Underlay minY={minY} maxY={maxY} dates={dates} step={step} />
-            <Box width={width} height={height}>
+            <Transitioning.View
+                style={{ width, height, overflow: "hidden" }}
+                ref={ref}
+                transition={transition}
+            >
                 {
                     data.map((point, i) => {
                         if (point.value === 0) {
@@ -76,7 +93,7 @@ const Graph = ({ data }: GraphProps) => {
                         );
                     })
                 }
-            </Box>
+            </Transitioning.View>
         </Box>
     );
 };

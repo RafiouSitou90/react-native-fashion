@@ -16,7 +16,7 @@ const Footer = ({ onPress, title, action }: FooterProps) => {
             <SocialLogin />
             <Box alignItems="center" marginTop="m" marginBottom="m">
                 <TouchableWithoutFeedback { ...{ onPress } }>
-                    <Text variant="button" color="white">
+                    <Text variant="button" color="background">
                         <Text fontSize={13}>{`${title} `}</Text>
                         <Text
                             fontSize={14}

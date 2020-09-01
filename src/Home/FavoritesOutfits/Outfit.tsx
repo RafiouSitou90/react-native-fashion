@@ -37,7 +37,7 @@ const Outfit = ({ outfit, width }: OutfitProps) => {
                 }}
             >
                 {selected &&
-                    <RoundedIcon name="check" size={24} color="white" backgroundColor="primary" iconRatio={0.7} />
+                    <RoundedIcon name="check" size={24} color="background" backgroundColor="primary" iconRatio={0.7} />
                 }
             </Box>
         </BorderlessTap>

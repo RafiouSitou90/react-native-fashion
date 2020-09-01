@@ -43,7 +43,7 @@ const TextInputField = forwardRef<TextInput, TextInputFieldProps>(
                     <RoundedIcon
                         name={!error ? "check" : "x"}
                         size={SIZE}
-                        color="white"
+                        color="background"
                         backgroundColor={!error ? "primary" : "danger"}
                         iconRatio={0.7}
                     />

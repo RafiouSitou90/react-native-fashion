@@ -1,24 +1,44 @@
-import {createText, createBox, useTheme as useReTheme} from '@shopify/restyle';
+import React, {ReactNode} from "react";
+import {
+    createText,
+    createBox,
+    useTheme as useReTheme,
+    ThemeProvider as ReStyleThemeProvider
+} from '@shopify/restyle';
 import {ImageStyle, TextStyle, ViewStyle} from "react-native";
 
-export const theme = {
+export const palette = {
+    white: "white",
+    green: "#2CB9B0",
+    orange: "#FE5E33",
+    yellow: "#FFC641",
+    pink: "#FF87A2",
+    violet: "#442CB9",
+    customViolet: "#160029",
+    customViolet2: "#120934",
+    lightblue: "#BFEAF5",
+    transparent: "transparent"
+}
+
+const theme = {
     colors: {
-        primary: "#2CB9B0",
+        primary: palette.green,
+        primaryLight: "#E7F9F7",
         secondary: "#0C0D34",
         danger: "#FF0058",
+        info: "#808080",
+        // lightGrey: "#FAFAFA",
         text: "rgba(12, 13, 52, 0.7)",
-        grey: "#F4F0EF",
-        lightGrey: "#FAFAFA",
-        darkGrey: "#808080",
-        white: "white",
-        primaryLight: "#E7F9F7",
-        orange: "#FE5E33",
-        yellow: "#FFC641",
-        pink: "#FF87A2",
-        violet: "#442CB9",
-        customViolet: "#160029",
-        lightblue: "#BFEAF5",
-        transparent: "transparent"
+        // darkGrey: "#808080",
+        background: palette.white,
+        background2: "#F4F0EF",
+
+        graph1: palette.orange,
+        graph2: palette.yellow,
+        drawer1: palette.orange,
+        drawer2: palette.yellow,
+        drawer3: palette.pink,
+        drawer4: palette.violet
     },
     spacing: {
         o: 0,
@@ -39,7 +59,7 @@ export const theme = {
             fontSize: 80,
             lineHeight: 80,
             fontFamily: "Bold",
-            color: "white",
+            color: "background",
             textAlign: "center"
         },
         title1: {
@@ -50,6 +70,11 @@ export const theme = {
         title2: {
             fontSize: 24,
             lineHeight: 30,
+            fontFamily: "SemiBold",
+            color: "secondary"
+        },
+        title3: {
+            fontSize: 16,
             fontFamily: "SemiBold",
             color: "secondary"
         },
@@ -73,10 +98,16 @@ export const theme = {
         }
     },
     breakpoints: {
-        // phone: 0,
-        // tablet: 768,
+        phone: 0,
+        tablet: 768,
     },
 };
+
+export const ThemeProvider = ({ children }: { children: ReactNode }) => (
+    <ReStyleThemeProvider theme={theme}>
+        {children}
+    </ReStyleThemeProvider>
+)
 
 export type Theme = typeof theme;
 export const Box = createBox<Theme>()

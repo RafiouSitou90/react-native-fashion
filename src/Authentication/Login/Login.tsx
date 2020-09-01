@@ -8,6 +8,7 @@ import {Container, Button, Text, Box} from "../../components"
 import TextInputField from '../../components/Form/TextInputField';
 import CheckBoxField from "../../components/Form/CheckBoxField";
 import Footer from "../components/Footer";
+import {CommonActions} from "@react-navigation/native";
 
 
 const loginSchema = yup.object().shape({
@@ -37,7 +38,12 @@ const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
     } = useFormik({
         validationSchema:loginSchema,
         initialValues:{email: "", password: "", remember: false},
-        onSubmit: () => navigation.navigate("Home")
+        onSubmit: () => navigation.dispatch(CommonActions.reset({
+            index: 0,
+            routes: [
+                { name: "Home" }
+            ]
+        }))
     });
 
     const password = useRef<TextInput>(null)
