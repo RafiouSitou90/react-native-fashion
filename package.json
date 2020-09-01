@@ -14,7 +14,7 @@
     "@react-navigation/drawer": "^5.9.0",
     "@react-navigation/native": "^5.7.2",
     "@react-navigation/stack": "^5.8.0",
-    "@shopify/restyle": "^1.1.0",
+    "@shopify/restyle": "^1.2.0",
     "ci": "yarn lint && yarn tsc",
     "expo": "~38.0.8",
     "expo-asset": "~8.1.7",
