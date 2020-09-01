@@ -64,7 +64,7 @@ const Drawer = ({ navigation }: DrawerProps) => {
     // const navigation = useNavigation();
     return (
         <Box flex={1}>
-            <Box flex={0.2} backgroundColor="white">
+            <Box flex={0.2} backgroundColor="background">
                 <Box
                     position="absolute"
                     top={0}
@@ -93,7 +93,7 @@ const Drawer = ({ navigation }: DrawerProps) => {
                     left={0}
                     right={0}
                     bottom={0}
-                    backgroundColor="white"
+                    backgroundColor="background"
                     borderTopLeftRadius="xl"
                     borderBottomRightRadius="xl"
                     justifyContent="center"
@@ -118,7 +118,7 @@ const Drawer = ({ navigation }: DrawerProps) => {
             </Box>
             <Box
                 width={DRAWER_WIDTH}
-                backgroundColor="white"
+                backgroundColor="background"
                 overflow="hidden"
                 height={ height * 0.61 }
             >

@@ -18,7 +18,7 @@ const Welcome = ({ navigation }:  AuthNavigationProps<"Welcome">) => {
     const theme = useTheme();
 
     return (
-        <Box flex={1} backgroundColor="white" >
+        <Box flex={1} backgroundColor="background" >
             <Box flex={1} borderBottomRightRadius="xl" backgroundColor="grey" justifyContent="flex-end">
                 <Image
                     source={picture.src}
@@ -38,7 +38,7 @@ const Welcome = ({ navigation }:  AuthNavigationProps<"Welcome">) => {
                     right={0}
                 />
                 <Box
-                    backgroundColor="white"
+                    backgroundColor="background"
                     borderTopLeftRadius="xl"
                     flex={1}
                     justifyContent="space-evenly"

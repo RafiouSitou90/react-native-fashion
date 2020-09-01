@@ -55,7 +55,7 @@ const SocialIcon = ({ children }: SocialIconProps) => {
     return (
         <Box
             marginHorizontal="s"
-            backgroundColor="white"
+            backgroundColor="background"
             width={SIZE}
             height={SIZE}
             borderRadius="l"

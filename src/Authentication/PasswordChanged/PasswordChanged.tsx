@@ -16,7 +16,7 @@ const PasswordChanged = ({ navigation }: AuthNavigationProps<"PasswordChanged">)
                         name="x"
                         size={60}
                         color="secondary"
-                        backgroundColor="white"
+                        backgroundColor="background"
                         onPress={() => navigation.pop()}
                         iconRatio={0.7}
                     />

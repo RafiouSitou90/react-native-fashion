@@ -75,7 +75,7 @@ const FavoritesOutfits = ({ navigation }: HomeNavigationProps<"FavoritesOutfits"
     const [footerHeight, setFooterHeight] = useState(0);
 
     return (
-        <Box flex={1} backgroundColor="white">
+        <Box flex={1} backgroundColor="background">
             <Header
                 title="Outfit Ideas"
                 left={{ icon: "menu", onPress: () => navigation.openDrawer() }}
