@@ -2,6 +2,7 @@ import React from 'react';
 import "intl";
 import 'intl/locale-data/jsonp/en';
 import {StyleSheet} from "react-native";
+import moment from "moment"
 
 import {Box, Text, useTheme} from "../../../components";
 import { lerp } from './Scale';
@@ -9,17 +10,17 @@ import { lerp } from './Scale';
 export const MARGIN = "xl";
 const ROW_HEIGHT = 16;
 
-const formatter = Intl.DateTimeFormat("en", { month: "short" });
-
 interface UnderlayProps {
-    dates: number[];
     minY: number;
     maxY: number;
     step: number;
+    startDate: number;
+    numberOfMonths: number;
 }
 
-const Underlay = ({ dates, minY, maxY, step }: UnderlayProps) => {
+const Underlay = ({ minY, maxY, step, startDate, numberOfMonths}: UnderlayProps) => {
     const theme = useTheme();
+    const minDate = moment(startDate)
 
     return (
         <Box style={StyleSheet.absoluteFill}>
@@ -59,10 +60,13 @@ const Underlay = ({ dates, minY, maxY, step }: UnderlayProps) => {
                 alignItems="center"
             >
                 {
-                    dates.map((date, index) => (
+                    new Array(numberOfMonths)
+                        .fill(0)
+                        .map((_, i) => minDate.clone().add(i, "month"))
+                        .map((date, index) => (
                         <Box width={step} key={index}>
                             <Text color="info" textAlign="center">
-                                {formatter.format(new Date(date))}
+                                {date.format("MMM")}
                             </Text>
                         </Box>
                     ))

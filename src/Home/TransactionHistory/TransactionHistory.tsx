@@ -10,19 +10,10 @@ import TopCurve from './TopCurve';
 
 const footerHeight = Dimensions.get("window").width / 3.5;
 
+const startDate = new Date("2019-09-01").getTime()
+const numberOfMonths = 6
+
 const data: DataPoint[] = [
-    {
-        id: 245670,
-        date: new Date("2019-09-01").getTime(),
-        value: 0,
-        color: "primary"
-    },
-    {
-        id: 245671,
-        date: new Date("2019-10-01").getTime(),
-        value: 0,
-        color: "primary"
-    },
     {
         id: 245672,
         date: new Date("2019-10-01").getTime(),
@@ -31,28 +22,16 @@ const data: DataPoint[] = [
     },
     {
         id: 245673,
-        date: new Date("2019-12-01").getTime(),
+        date: new Date("2019-11-01").getTime(),
         value: 281.23,
         color: "graph1"
     },
     {
         id: 245674,
         date: new Date("2020-01-01").getTime(),
-        value: 0,
-        color: "primary"
-    },
-    {
-        id: 245675,
-        date: new Date("2020-02-01").getTime(),
         value: 198.54,
         color: "graph2"
-    },
-    {
-        id: 245676,
-        date: new Date("2020-03-01").getTime(),
-        value: 0,
-        color: "primary"
-    },
+    }
 ];
 
 const TransactionHistory = ({ navigation }: HomeNavigationProps<"TransactionHistory">) => {
@@ -80,7 +59,7 @@ const TransactionHistory = ({ navigation }: HomeNavigationProps<"TransactionHist
                         <Text color="primary">{"  "}All Time{"  "}</Text>
                     </Box>
                 </Box>
-                <Graph data={data} />
+                <Graph data={data} startDate={startDate} numberOfMonths={numberOfMonths} />
 
                 <ScrollView contentContainerStyle={styles.scrollView} showsVerticalScrollIndicator={false}>
                     {
