@@ -1,14 +1,16 @@
+import moment from "moment";
 import React, {useLayoutEffect, useRef} from 'react';
+import {Dimensions} from "react-native";
+import {Transition, Transitioning, TransitioningView} from 'react-native-reanimated';
 
 import {Box, useTheme} from "../../../components";
-import {Dimensions} from "react-native";
 import {Theme} from "../../../components/Theme";
-import Underlay, { MARGIN } from "../Graph/Underlay";
-import { lerp } from './Scale';
-import {Transition, Transitioning, TransitioningView} from 'react-native-reanimated';
+import Underlay, {MARGIN} from "../Graph/Underlay";
+import {lerp} from './Scale';
 
 const { width: wWidth } = Dimensions.get("window");
 const aspectRatio = 195 / 305;
+
 const transition = (
     <Transition.Together>
         <Transition.In type="fade" durationMs={650} interpolation="easeInOut" />
@@ -25,9 +27,11 @@ export interface DataPoint {
 
 interface GraphProps {
     data: DataPoint[];
+    startDate: number;
+    numberOfMonths: number;
 }
 
-const Graph = ({ data }: GraphProps) => {
+const Graph = ({ data, startDate, numberOfMonths }: GraphProps) => {
     const ref = useRef<TransitioningView>(null);
 
     const theme = useTheme();
@@ -36,9 +40,8 @@ const Graph = ({ data }: GraphProps) => {
     const width = canvasWidth - theme.spacing[MARGIN]
     const height = canvasHeight - theme.spacing[MARGIN]
 
-    const step = width / data.length;
+    const step = width / numberOfMonths;
     const values = data.map((p) => p.value);
-    const dates = data.map((p) => p.date);
     const minY = Math.min(...values);
     const maxY = Math.max(...values);
 
@@ -48,21 +51,27 @@ const Graph = ({ data }: GraphProps) => {
 
     return (
         <Box marginTop="xl" paddingLeft={MARGIN} paddingBottom={MARGIN}>
-            <Underlay minY={minY} maxY={maxY} dates={dates} step={step} />
+            <Underlay
+                minY={minY}
+                maxY={maxY}
+                startDate={startDate}
+                numberOfMonths={numberOfMonths}
+                step={step}
+            />
             <Transitioning.View
                 style={{ width, height, overflow: "hidden" }}
                 ref={ref}
                 transition={transition}
             >
                 {
-                    data.map((point, i) => {
-                        if (point.value === 0) {
-                            return null;
-                        }
+                    data.map((point) => {
+                        const i = Math.round(
+                            moment.duration(moment(point.date).diff(startDate)).asMonths()
+                        )
 
                         return  (
                             <Box
-                                key={point.date}
+                                key={point.id}
                                 position="absolute"
                                 left={i * step}
                                 width={step}
