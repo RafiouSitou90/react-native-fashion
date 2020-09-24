@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React, { Children, ReactNode, useState } from "react"
 import { Dimensions } from "react-native"
 import { RectButton } from "react-native-gesture-handler"
-import Animated from "react-native-reanimated"
+import Animated, { multiply } from "react-native-reanimated"
 import { mix, useTransition } from "react-native-redash"
 
 import { Box, Text, useTheme } from "../../components"
@@ -13,11 +13,12 @@ interface Tab {
 
 interface TabsProps {
 	tabs: Tab[]
+	children: ReactNode
 }
 
 const { width } = Dimensions.get("window")
 
-const Tabs = ({ tabs }: TabsProps) => {
+const Tabs = ({ tabs, children }: TabsProps) => {
 	const theme = useTheme()
 	const [index, setIndex] = useState(0)
 	// const selectedTab = tabs[index]
@@ -56,6 +57,20 @@ const Tabs = ({ tabs }: TabsProps) => {
 					}}
 				/>
 			</Box>
+			<Animated.View
+				style={{
+					flex: 0,
+					width: width * tabs.length,
+					flexDirection: "row",
+					transform: [{ translateX: multiply(-width, transition) }],
+				}}
+			>
+				{Children.map(children, (child, i) => (
+					<Box flex={1} key={i} width={width}>
+						{child}
+					</Box>
+				))}
+			</Animated.View>
 		</Box>
 	)
 }

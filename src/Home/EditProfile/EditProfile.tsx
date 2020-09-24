@@ -6,6 +6,8 @@ import { Box, Header, Text, useTheme } from "../../components"
 import { HomeNavigationProps } from "../../components/Navigation"
 
 import Tabs from "./Tabs"
+import Configuration from "./Configuration"
+import PersonalInfo from "./PersonalInfo"
 
 const { width } = Dimensions.get("window")
 const tabs = [
@@ -69,7 +71,10 @@ const EditProfile = ({ navigation }: HomeNavigationProps<"EditProfile">) => {
 					</Text>
 				</Box>
 			</Box>
-			<Tabs tabs={tabs} />
+			<Tabs tabs={tabs}>
+				<Configuration />
+				<PersonalInfo />
+			</Tabs>
 		</Box>
 	)
 }
