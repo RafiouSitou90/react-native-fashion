@@ -26,7 +26,7 @@ const Tabs = ({ tabs, children }: TabsProps) => {
 	const translateX = mix(transition, width * 0.25, width * 0.75)
 
 	return (
-		<Box>
+		<Box flex={1}>
 			<Box flexDirection={"row"}>
 				{tabs.map((tab, i) => (
 					<RectButton
@@ -59,8 +59,9 @@ const Tabs = ({ tabs, children }: TabsProps) => {
 			</Box>
 			<Animated.View
 				style={{
-					flex: 0,
+					flex: 1,
 					width: width * tabs.length,
+					paddingTop: theme.spacing.s,
 					flexDirection: "row",
 					transform: [{ translateX: multiply(-width, transition) }],
 				}}

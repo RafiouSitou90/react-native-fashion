@@ -39,7 +39,7 @@ const colors = [
 
 const Configuration = () => {
 	return (
-		<ScrollView>
+		<ScrollView showsVerticalScrollIndicator={false}>
 			<Box padding={"m"}>
 				<Text variant={"body"}>
 					What type of outfit you usually wear?
