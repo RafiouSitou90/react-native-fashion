@@ -48,7 +48,7 @@
     "eslint": "^7.5.0",
     "eslint-config-react-native-wcandillon": "^3.3.3",
     "eslint-plugin-import": "^2.22.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "prettier": "^2.1.2",
     "typescript": "^3.9.7"
   },
